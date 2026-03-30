@@ -1,0 +1,38 @@
+{
+  "name": "coolify-github-actions",
+  "version": "1.0.0",
+  "description": "GitHub Actions to deploy applications to Coolify via API",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:deploy": "ncc build src/deploy/index.ts -o deploy/dist --source-map --license licenses.txt",
+    "build:wait": "ncc build src/wait/index.ts -o wait/dist --source-map --license licenses.txt",
+    "build": "npm run build:deploy && npm run build:wait",
+    "test": "vitest run",
+    "lint": "eslint src/ tests/",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@actions/core": "^3.0.0",
+    "@actions/http-client": "^4.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "@types/node": "^24.0.0",
+    "@vercel/ncc": "^0.38.4",
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.0.0",
+    "prettier": "^3.8.1",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.57.2",
+    "vitest": "^4.1.2"
+  },
+  "overrides": {
+    "typescript-eslint": {
+      "typescript": "$typescript"
+    }
+  },
+  "author": "medeiroz",
+  "license": "MIT"
+}

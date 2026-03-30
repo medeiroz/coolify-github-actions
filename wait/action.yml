@@ -1,0 +1,35 @@
+name: Coolify Wait Deploy
+description: Wait for a Coolify deployment to finish and display application logs
+author: medeiroz
+
+branding:
+  icon: clock
+  color: green
+
+inputs:
+  api_url:
+    description: >
+      Coolify API base URL including /api/v1
+      (e.g. https://coolify.example.com/api/v1)
+    required: true
+  token:
+    description: Coolify API token (from Keys & Tokens in Coolify dashboard)
+    required: true
+  app_uuid:
+    description: UUID of the Coolify application (for fetching logs)
+    required: true
+  deployment_uuid:
+    description: UUID of the deployment to monitor
+    required: true
+  timeout_minutes:
+    description: Max minutes to wait before timing out (must be positive integer)
+    required: false
+    default: '5'
+
+outputs:
+  status:
+    description: Final deployment status (success, failed, or timeout)
+
+runs:
+  using: node24
+  main: dist/index.js

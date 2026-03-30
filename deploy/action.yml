@@ -1,0 +1,34 @@
+name: Coolify Deploy
+description: Trigger a Coolify application deployment and return the deployment UUID
+author: medeiroz
+
+branding:
+  icon: upload-cloud
+  color: blue
+
+inputs:
+  api_url:
+    description: >
+      Coolify API base URL including /api/v1
+      (e.g. https://coolify.example.com/api/v1)
+    required: true
+  token:
+    description: Coolify API token (from Keys & Tokens in Coolify dashboard)
+    required: true
+  app_uuid:
+    description: UUID of the Coolify application to deploy
+    required: true
+  force:
+    description: Force rebuild even if nothing changed
+    required: false
+    default: 'false'
+
+outputs:
+  deployment_uuid:
+    description: UUID of the triggered deployment
+  resource_uuid:
+    description: UUID of the deployed resource
+
+runs:
+  using: node24
+  main: dist/index.js

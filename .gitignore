@@ -1,0 +1,6 @@
+node_modules/
+lib/
+*.js.map
+
+# NÃO ignorar dist/ — precisa ser commitado para GitHub Actions
+# NÃO ignorar package-lock.json — necessário para npm ci

@@ -1,0 +1,8 @@
+{
+  "deployments": [
+    {
+      "deployment_uuid": "abc123",
+      "resource_uuid": "res456"
+    }
+  ]
+}
